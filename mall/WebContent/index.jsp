@@ -53,9 +53,6 @@ productList = productDao.selectProductList();
 			<jsp:include page="/inc/menu.jsp"></jsp:include>
 		</div>
 
-
-
-
 		<!-- 최근 공지 2개 -->
 		<div>
 			<%
