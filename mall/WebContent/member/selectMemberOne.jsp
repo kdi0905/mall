@@ -105,15 +105,7 @@
 					
 		</table>
 	</form>
-	 <!-- 주문정보 보기 -->
-	 <%
-	 Orders orders= new Orders();
-	 orders.setMemberEmail(member.getMemberEmail());
-	 OrdersDao ordersDao = new OrdersDao();
-	 ArrayList<Orders> ordersList = ordersDao.selectOrdersList(orders);
-	 
-	 
-	 
+
 	 
 	 %>
 	</div>
