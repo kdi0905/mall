@@ -143,7 +143,6 @@ productList = productDao.selectProductList();
 			</div>
 		</div>
 	
-		
 			
 		<!-- 상품 이미지 카드  -->
 		<div>
