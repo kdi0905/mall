@@ -31,35 +31,35 @@
 		Product product = productDao.selectProductOne(productId);
 		%>
 		
-		<h1>상품 상세보기</h1>
+		<h1 class="text-secondary" style="text-align: center;">상품 상세보기</h1>
 		<!-- 주문하기 -->
 
 		<!-- 상세보기 테이블 -->
 		<table class="table"  style="text-align: center;">
 			<tr>
-				<td>product_id</td>
+				<td class="align-middle">product_id</td>
 				<td><%=product.getProductId()%></td>
 			</tr>
 			<tr>
-				<td>product_pic</td>
-				<td><img
-					src="<%=request.getContextPath()%>/images/<%=product.getProductPic()%>"></td>
+				<td class="align-middle">product_pic</td>
+				<td class="align-middle"><img width=" 150" height=" 150"
+					src="/mall-admin/images/<%=product.getProductPic()%>"></td>
 			</tr>
 			<tr>
-				<td>product_name</td>
-				<td><%=product.getProductName()%></td>
+				<td class="align-middle">product_name</td>
+				<td class="align-middle"><%=product.getProductName()%></td>
 			</tr>
 			<tr>
-				<td>product_content</td>
-				<td><%=product.getProductContent()%></td>
+				<td class="align-middle">product_content</td>
+				<td class="align-middle"><%=product.getProductContent()%></td>
 			</tr>
 			<tr>
-				<td>product_price</td>
-				<td><%=product.getProductPrice()%></td>
+				<td class="align-middle">product_price</td>
+				<td class="align-middle"><%=product.getProductPrice()%></td>
 			</tr>
 			<tr>
-				<td>product_soldout</td>
-				<td><%=product.getProductSoldout()%></td>
+				<td class="align-middle">product_soldout</td>
+				<td class="align-middle"><%=product.getProductSoldout()%></td>
 			</tr>
 		</table>
 		
@@ -72,12 +72,12 @@
 			<table class="table "  style="text-align: right; ">
 				<tr>
 					
-					<td>상품 개수<select name="ordersAmount">
+					<td>상품 개수<select name="productAmount">
 							<%
 								for (int i = 1; i < 11; i = i + 1) {
 							%>
 							<option value="<%=i%>"><%=i%>
-							<option>
+							</option>
 								<%
 									}
 								%>

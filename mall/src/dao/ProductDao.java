@@ -80,7 +80,7 @@ public class ProductDao {
 		ArrayList<Product> list = new ArrayList<Product>();
 		DBUtil dbUtil =new DBUtil();
 		Connection conn= dbUtil.getConnection();
-		String sql ="select product_id, product_name, product_price ,product_pic, product_soldout from product where category_id=?";
+		String sql ="select product_id, product_name, product_price ,product_pic, product_soldout from product where category_id=? ";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		stmt.setInt(1, product.getCategoryId());
 		ResultSet rs = stmt.executeQuery();

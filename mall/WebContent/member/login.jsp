@@ -31,12 +31,12 @@
 			<table class="table " style="text-align: center;">
 				<tr>
 					<td>이메일</td>
-					<td><input type="text" name="memberEmail"></td>
+					<td><input type="text" name="memberEmail" value ="1234@goodee.com"></td>
 				</tr>
 
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="password" name="memberPw"></td>
+					<td><input type="password" name="memberPw" value ="1234"></td>
 				</tr>
 
 			</table>

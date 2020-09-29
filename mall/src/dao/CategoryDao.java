@@ -62,5 +62,20 @@ public class CategoryDao {
 		conn.close();
 		return category;
 	}
-	
+	//카테고리 이름으로 카테고리 아이디 찾기
+	public Category selectCategoryOneById(Category category) throws Exception{
+		DBUtil dbUtil = new DBUtil();
+		Connection conn = dbUtil.getConnection();
+		String sql ="select category_id from category where category_name like ?";
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		stmt.setString(1, "%"+category.getCategoryName()+"%");
+		ResultSet rs = stmt.executeQuery();
+		
+		if(rs.next()) {
+			
+			category.setCategoryId(rs.getInt("category_id"));
+		}
+		conn.close();
+		return category;
+	}
 }

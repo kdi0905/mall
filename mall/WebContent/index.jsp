@@ -27,21 +27,20 @@ ArrayList<Category> categoryList1 = categoryDao.selectCategoryList();
 //추천 category리스트 목록
 ArrayList<Category> categoryListCk = categoryDao.selectCategoryCkList();
 
-
 //카테고리 번호 넣어서 리스트 보여주기 초기값 0
 ProductDao productDao = new ProductDao();
 ArrayList<Product> productList = null;
 Product product = new Product();
-int categoryIdShow =0;
-if(request.getParameter("categoryIdShow")!=null){
-categoryIdShow = Integer.parseInt(request.getParameter("categoryIdShow"));
+int categoryIdShow = 0;
+if (request.getParameter("categoryIdShow") != null) {
+	categoryIdShow = Integer.parseInt(request.getParameter("categoryIdShow"));
 }
 System.out.println(categoryIdShow);
 
 product.setCategoryId(categoryIdShow);
-if(categoryIdShow ==0){
-productList = productDao.selectProductList();
-}else {
+if (categoryIdShow == 0) {
+	productList = productDao.selectProductList();
+} else {
 	productList = productDao.selectProductbycategoryId(product);
 }
 %>
@@ -83,13 +82,13 @@ productList = productDao.selectProductList();
 			<!-- 전체 카테고리2/ 이미지 배너8 / 빈공간 1,1 -->
 			<div class="row">
 				<div class="col-sm-1"></div>
-				
+
 				<div class="col-sm-10">
 					<!-- 이미지 -->
-					<img src="<%=request.getContextPath()%>/images/b1.jpg"
-						width="900" height="300">
+					<img src="<%=request.getContextPath()%>/images/b1.jpg" width="900"
+						height="300">
 				</div>
-					<div class="col-sm-1"></div>
+				<div class="col-sm-1"></div>
 			</div>
 		</div>
 
@@ -100,8 +99,8 @@ productList = productDao.selectProductList();
 					<%
 						for (Category c : categoryListCk) {
 					%>
-					<td><a href=""><img class="rounded-circle"
-							alt="<%=c.getCategoryPic() %>"
+					<td><a href="<%=request.getContextPath()%>/product/productList.jsp?categoryId=<%=c.getCategoryId()%>"><img class="rounded-circle"
+							alt="<%=c.getCategoryPic()%>"
 							src="/mall-admin/images/<%=c.getCategoryPic()%>" width="150"
 							height="150"></a>
 					<td>
@@ -139,11 +138,11 @@ productList = productDao.selectProductList();
 				</table>
 			</div>
 		</div>
-	
-			
+
+
 		<!-- 상품 이미지 카드  -->
 		<div>
-			<table class="table table-borderless"  style="text-align: center;" >
+			<table class="table table-borderless" style="text-align: center;">
 				<tr>
 					<%
 						int i = 0;
@@ -151,35 +150,36 @@ productList = productDao.selectProductList();
 					for (Product p : productList) {
 						i = i + 1;
 					%>
-		<td>
-			<div class="card" style="width: 350px">
-				<img class="card-img-top"
-					src="/mall-admin/images/<%=p.getProductPic() %>" alt="Card image" width="250" height="250">
-				<div class="card-body">
-					<h4 class="card-title">
-						<a class="text-secondary"
-							href="<%=request.getContextPath()%>/product/productOne.jsp?productId=<%=p.getProductId()%>"><%=p.getProductName()%></a>
-					</h4>
-					<p class="card-text"><%=p.getProductPrice()%></p>
+					<td>
+						<div class="card" style="width: 350px">
+							<img class="card-img-top"
+								src="/mall-admin/images/<%=p.getProductPic()%>" alt="Card image"
+								width="250" height="250">
+							<div class="card-body">
+								<h4 class="card-title">
+									<a class="text-secondary"
+										href="<%=request.getContextPath()%>/product/productOne.jsp?productId=<%=p.getProductId()%>"><%=p.getProductName()%></a>
+								</h4>
+								<p class="card-text"><%=p.getProductPrice()%></p>
 
-				</div>
-			</div>
+							</div>
+						</div>
 
-		</td>
-		<%
+					</td>
+					<%
 						if (i % 3 == 0) {
 					%>
 
-		</tr>
-		<tr>
-			<%
+				</tr>
+				<tr>
+					<%
 						}
 
 					}
 					%>
-		</tr>
-		</table>
-	</div>
+				</tr>
+			</table>
+		</div>
 
 
 	</div>
