@@ -63,18 +63,11 @@
 							<span><%=oap.orders.getOrdersState() %></span>
 							</td>
 							<td class="align-middle">
-							<a href="">상품 취소</a>
-						<tr>
-						
+							<a class ="text-danger" href="<%=request.getContextPath()%>/orders/updateOrdersByDelete.jsp?ordersId=<%=oap.orders.getOrdersId()%>">상품 취소</a>
+						<tr>						
 						<%
-					}
-				
-				
-				%>
-				
-					
-				
-			
+					}								
+				%>		
 		</table>
 	</div>
 </body>

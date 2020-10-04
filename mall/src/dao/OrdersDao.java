@@ -51,4 +51,15 @@ public class OrdersDao {
 		conn.close();
 		return list;
 	}
+	
+	//주문 취소
+	public void updateOrdersStateByDelete(Orders orders) throws Exception {
+		DBUtil dbUtil = new DBUtil();
+		Connection conn = dbUtil.getConnection();
+		String sql = "update orders set orders_state='주문취소' where orders_id =?";
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		stmt.setInt(1, orders.getOrdersId());
+		stmt.executeUpdate();
+		conn.close();
+	}
 }
