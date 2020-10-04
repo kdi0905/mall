@@ -106,8 +106,7 @@
 		</table>
 	</form>
 
-	 
-	 %>
+	
 	</div>
 </body>
 </html>
