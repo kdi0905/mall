@@ -73,7 +73,7 @@
 					<a class="btn btn-outline-secondary" href="<%=request.getContextPath()%>/member/selectMemberOne.jsp?pwCount=1" >수정</a>
 					<%}else if(pwCount ==1){ %>
 					<div> 현재 비밀번호를 입력해주세요.</div>
-						<input type ="text" name="nowPw"><br>
+						<input type ="password" name="nowPw"><br>
 						<!-- 현재 비밀번호랑 로그인된 이메일 비밀번호랑 다르면 다시입력 메시지 -->
 						<%if(failNowPw.equals("N")){
 							%>
@@ -84,13 +84,13 @@
 						
 						
 						<div> 새로운 비밀번호를 입력해주세요.</div>
-						<input type ="text" name="newPw">
+						<input type ="password" name="newPw">
 						<div></div>
 						
 						
 								
 						<div> 새로운 비밀번호를 한번 더 입력해주세요.</div>
-						<input type ="text" name="newPw2"><br>
+						<input type ="password" name="newPw2"><br>
 						<!-- 변경할 비밀번호가 서로 다르면 -->
 						<%if(failNewPw.equals("N")){
 							%>
