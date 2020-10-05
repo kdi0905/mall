@@ -85,7 +85,7 @@
 						
 						<div> 새로운 비밀번호를 입력해주세요.</div>
 						<input type ="password" name="newPw">
-						<div></div>
+						
 						
 						
 								

@@ -29,18 +29,18 @@
 		<form method="post" action="<%=request.getContextPath()%>/member/signupAction.jsp">
 			<table class ="table" style="text-align: center;">
 				<tr>
-					<td> member_email</td>
+					<td>이메일</td>
 					<td><input type="text" name="memberEmail"> </td>
 				</tr>
 				
 				<tr>
-					<td> member_pw</td>
+					<td>비밀번호</td>
 					<td><input type="password" name="memberPw"> </td>
 					
 				</tr>
 				
 				<tr>
-					<td> member_name</td>
+					<td>이름</td>
 					<td><input type="text" name="memberName"> </td>
 				</tr>
 				

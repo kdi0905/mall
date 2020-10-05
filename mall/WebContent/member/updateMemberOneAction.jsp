@@ -41,12 +41,5 @@
 	}else{
 		response.sendRedirect(request.getContextPath()+"/member/selectMemberOne.jsp?pwCount=1&failNewPw=N&failNowPw=N");
 	}
-	
-		
-		
-		
-	 
-		
-	
-	
+
 %>
