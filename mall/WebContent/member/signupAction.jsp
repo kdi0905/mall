@@ -30,7 +30,6 @@
 	paramMember.setMemberName(memberName);
 	//회원가입 추가
 	memberDao.insertMember(paramMember);
-	
-	
+		
 	response.sendRedirect(request.getContextPath()+"/member/login.jsp");
 %>

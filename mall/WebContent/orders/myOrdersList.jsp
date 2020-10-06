@@ -21,7 +21,10 @@
 	href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
 	integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
 	crossorigin="anonymous">
-
+<style>
+ .categoryId { font-size: 40px}
+ .categroyIdColor { color: #5E5E5E}
+</style>	
 </head>
 <body>
 	<div class="container">
@@ -45,12 +48,12 @@
 					for(OrdersAndProduct oap : oapList){
 						%>
 						<tr><!-- 위아래 정렬 :class="align-middle" -->
-							<td class="align-middle"><span><%=oap.orders.getProductId()%>.</span><%=oap.product.getProductName()%>(<%=oap.product.getProductPrice() %>원*<%=oap.orders.getOrdersAmount() %>개)		
+							<td class="align-middle"><span class="categoryId categroyIdColor" ><%=oap.orders.getProductId()%></span><%=oap.product.getProductName()%>(<%=oap.product.getProductPrice() %>원*<%=oap.orders.getOrdersAmount() %>개)		
 							</td>
 							<td class="align-middle">
 								<div style="text-align: center;"><img src="/mall-admin/images/<%=oap.product.getProductPic() %>" width="100" height="100"></div>
 							</td>
-							<td class="align-middle">
+							<td class="align-middle"> 
 								<span>수량:<%=oap.orders.getOrdersAmount() %>개</span><br>
 								<span>가격:<%=oap.orders.getOrdersPrice() %>원</span><br>
 								<span>주문 날짜 : <%=oap.orders.getOrdersDate() %></span>
