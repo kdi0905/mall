@@ -30,7 +30,7 @@ public class NoticeDao {
 		DBUtil dbutil = new DBUtil();
 		Connection conn =dbutil.getConnection();
 		
-		String sql ="select notice_id, notice_title from notice order by notice_date desc ";
+		String sql ="select notice_id, notice_title, notice_count from notice order by notice_date desc ";
 		PreparedStatement stmt = conn.prepareStatement(sql);
 		ResultSet rs = stmt.executeQuery();
 		while(rs.next()) {
@@ -39,6 +39,7 @@ public class NoticeDao {
 			notice.setNoticeId(rs.getInt("notice_id"));
 			//notice.noticeTitle = rs.getString("notice_title");
 			notice.setNoticeTitle(rs.getString("notice_title"));
+			notice.setNoticeCount(rs.getInt("notice_count"));
 			list.add(notice);
 		}
 		conn.close();

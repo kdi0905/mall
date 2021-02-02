@@ -18,6 +18,15 @@
 .noticbg {
 	background-color: #F6F6F6;
 }
+body{
+	background-color: #FAFFFA;
+}
+#now{
+	background-color: #C5C0FF;
+}
+#notice{
+	background-color: #EDFFE7;
+}
 </style>
 </head>
 <%
@@ -48,7 +57,7 @@ if (categoryIdShow == 0) {
 <body>
 	<!-- 09-23일시작 -->
 	<div class="container">
-		<div>
+		<div style="margin-top: 20px;">
 			<jsp:include page="/inc/menu.jsp"></jsp:include>
 		</div>
 
@@ -58,14 +67,13 @@ if (categoryIdShow == 0) {
 				NoticeDao noticeDao = new NoticeDao();
 			ArrayList<Notice> noticeList = noticeDao.selectNoticeList();
 			%>
-			<table class="table table-bordered  " style="text-align: center;">
+			<table class="table table-hover" id="notice" style="text-align: center;">
 				<%
 					for (Notice n : noticeList) {
 				%>
 				<tr>
 
-					<td colspan="2"><a class="text-secondary"
-						href="<%=request.getContextPath()%>/notice/noticeOne.jsp?noticeId=<%=n.getNoticeId()%>"><%=n.getNoticeId()%></a></td>
+					<td><span class="badge badge-danger"style="font-size: 15px;">공지</span></td>
 					<td><a class="text-secondary"
 						href="<%=request.getContextPath()%>/notice/noticeOne.jsp?noticeId=<%=n.getNoticeId()%>"><%=n.getNoticeTitle()%></a></td>
 
@@ -85,8 +93,7 @@ if (categoryIdShow == 0) {
 
 				<div class="col-sm-10">
 					<!-- 이미지 -->
-					<img src="<%=request.getContextPath()%>/images/b1.jpg" width="900"
-						height="300">
+					
 				</div>
 				<div class="col-sm-1"></div>
 			</div>
@@ -119,7 +126,7 @@ if (categoryIdShow == 0) {
 			<div>
 				<h4>
 					<!-- 현재 날짜 -->
-					오늘의 추천상품<span class="badge badge-secondary"><%=today.get(Calendar.YEAR)%>.<%=today.get(Calendar.MARCH) + 1%>.<%=today.get(Calendar.DAY_OF_MONTH)%></span>
+					오늘의 추천상품<span id="now" class="badge badge-secondary" style="margin-left: 10px;"><%=today.get(Calendar.YEAR)%>.<%=today.get(Calendar.MARCH) + 1%>.<%=today.get(Calendar.DAY_OF_MONTH)%></span>
 				</h4>
 				<table class="table table-borderless" style="text-align: center;">
 					<tr>
@@ -160,7 +167,7 @@ if (categoryIdShow == 0) {
 									<a class="text-secondary"
 										href="<%=request.getContextPath()%>/product/productOne.jsp?productId=<%=p.getProductId()%>"><%=p.getProductName()%></a>
 								</h4>
-								<p class="card-text"><%=p.getProductPrice()%></p>
+								<p class="card-text"><%=p.getProductPrice()%>원</p>
 
 							</div>
 						</div>

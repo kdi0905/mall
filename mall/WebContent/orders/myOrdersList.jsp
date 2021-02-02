@@ -24,11 +24,14 @@
 <style>
  .categoryId { font-size: 40px}
  .categroyIdColor { color: #5E5E5E}
+ body{
+	background-color: #FAFFFA;
+}
 </style>	
 </head>
 <body>
 	<div class="container">
-		<div>
+		<div style="margin-top: 20px;">
 			<jsp:include page="/inc/menu.jsp"></jsp:include>
 		</div>
 <%	//회원 이메일을 찾아서  이메일에 주문된 정보를 찾는다.

@@ -17,11 +17,14 @@
 	.px {
 		font-size : 40px;
 	}
+	body{
+	background-color: #FAFFFA;
+}
 	</style>
 </head>
 <body>
 <div class="container">
-	<div>
+	<div style="margin-top: 20px;">
 		<jsp:include page="/inc/menu.jsp"></jsp:include>
 	</div>
 	<%
@@ -41,11 +44,11 @@
 				<td class ="px" colspan="2"><%=notice.getNoticeId()%>&nbsp;.&nbsp;<%=notice.getNoticeTitle()%> </td>
 			</tr>
 			<tr>
-				<td width="300px"> <%=notice.getNoticeDate()%> 조회수<%=notice.getNoticeCount() %></td>
-				<td></td>
+				<td colspan="2"><span style="font-size: 13px; float: left; margin-left: 100px;" class="badge badge-info"> <%=notice.getNoticeDate()%></span> <span class="badge badge-success" style="float: right; margin-right: 100px;" >조회수<%=notice.getNoticeCount() %></span></td>
+				
 			</tr>
 			<tr>
-				<td colspan="2"><%=notice.getNoticeContent()%></td>
+				<td colspan="2" style="margin-top: 50px;"><textarea rows="5px" cols="100px" readonly="readonly" > <%=notice.getNoticeContent()%></textarea></td>
 			</tr>
 		</table>
 		<a  class="btn btn-secondary" href="<%=request.getContextPath()%>/notice/noticeList.jsp">목록</a>

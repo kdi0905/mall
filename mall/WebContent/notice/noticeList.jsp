@@ -18,11 +18,14 @@
 .noticbg {
 	background-color: #F6F6F6;
 }
+body{
+	background-color: #FAFFFA;
+}
 </style>
 </head>
 <body>
 <div class="container">
-		<div>
+		<div style="margin-top: 20px;">
 			<jsp:include page="/inc/menu.jsp"></jsp:include>
 		</div>
 		
@@ -34,7 +37,7 @@
 		<table class="table" style="text-align: center;">
 			<thead class="thead-light">
 				<tr>
-					<th>번호</th>
+					<th></th>
 					<th>제목</th>
 					<th>조회수</th>
 				</tr>
@@ -42,7 +45,7 @@
 			<tbody>
 				<% for(Notice n : noticeList){ %>
 						<tr>
-							<td class="text-secondary"><%=n.getNoticeId() %></td>
+							<td>●</td>
 							<td><a class="text-secondary" href="<%=request.getContextPath()%>/notice/noticeOne.jsp?noticeId=<%=n.getNoticeId()%>"><%=n.getNoticeTitle() %></a></td>
 							<td class="text-secondary"><%=n.getNoticeCount()%></td>
 						</tr>

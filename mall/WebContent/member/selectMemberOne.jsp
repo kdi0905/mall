@@ -25,11 +25,14 @@
 	.px {
 		font-size : 40px;
 	}
+	body{
+		background-color: #FAFFFA;
+	}
 	</style>
 </head>
 <body>
 	<div class="container">
-	<div>
+	<div style="margin-top: 20px;">
 		<jsp:include page="/inc/menu.jsp"></jsp:include>
 	</div>
 	

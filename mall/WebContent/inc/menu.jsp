@@ -10,7 +10,7 @@ ArrayList<Category> categoryList1 = categoryDao.selectCategoryList();
 %>
 <!-- request.getContextPacth()//파일 위치를 자동으로 설정한다 -->
 
-<div class="row">
+<div class="row" style="margin-bottom: 10px;">
 	<div class="col-sm-1"></div>
 	<div class="col-sm-3">
 		<h2>
@@ -21,19 +21,21 @@ ArrayList<Category> categoryList1 = categoryDao.selectCategoryList();
 
 	<div class="col-sm-6">
 		<form method="post" action="<%=request.getContextPath()%>/product/productList.jsp">
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			 <input class="col-sm-8" type="text" width="100px " name="categoryName"  >
-
-
-			<button class="btn btn-secondary col-sm-2" type="submit">검색</button>
-
+			
+			<div class="input-group" > 
+				 <input class="col-sm-8 form-control" type="text" width="100px " name="categoryName"  >
+	
+				<div class="input-group-append">
+					<button class="btn btn-secondary " type="submit">검색</button>
+				</div>
+			</div>
 		</form>
 	</div>
 	<div class="col-sm-2">
 		<a class="text-dark" href="<%=request.getContextPath()%>/member/selectMemberOne.jsp"><i class='far fa-user col-sm-4' style='font-size: 36px'></i></a> 
 		<a class="text-dark" href="<%=request.getContextPath()%>/orders/myOrdersList.jsp"><i class='fas fa-shopping-cart col-sm-4' style='font-size: 36px;'></i></a>
 	</div>
-	<div class="col-sm-1"></div>
+	
 </div>
 
 

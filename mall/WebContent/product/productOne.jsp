@@ -17,11 +17,14 @@
 .px {
 	font-size: 40px;
 }
+body{
+	background-color: #FAFFFA;
+}
 </style>
 </head>
 <body>
 	<div class="container">
-		<div>
+		<div style="margin-top: 20px;">
 			<jsp:include page="/inc/menu.jsp"></jsp:include>
 		</div>
 		<%
@@ -30,36 +33,50 @@
 		ProductDao productDao = new ProductDao();
 		Product product = productDao.selectProductOne(productId);
 		%>
+		<div style="margin-top: 30px;">
+			<h1 class="text-secondary" style="text-align: center;">상품 상세보기</h1>
+		</div>
 		
-		<h1 class="text-secondary" style="text-align: center;">상품 상세보기</h1>
 		<!-- 주문하기 -->
 
 		<!-- 상세보기 테이블 -->
 		<table class="table"  style="text-align: center;">
 			<tr>
-				<td class="align-middle">product_id</td>
+				<td class="align-middle">상품번호</td>
 				<td><%=product.getProductId()%></td>
 			</tr>
 			<tr>
-				<td class="align-middle">product_pic</td>
+				<td class="align-middle">상품사진</td>
 				<td class="align-middle"><img width=" 150" height=" 150"
 					src="/mall-admin/images/<%=product.getProductPic()%>"></td>
 			</tr>
 			<tr>
-				<td class="align-middle">product_name</td>
+				<td class="align-middle">상품이름</td>
 				<td class="align-middle"><%=product.getProductName()%></td>
 			</tr>
 			<tr>
-				<td class="align-middle">product_content</td>
+				<td class="align-middle">상품내용</td>
 				<td class="align-middle"><%=product.getProductContent()%></td>
 			</tr>
 			<tr>
-				<td class="align-middle">product_price</td>
-				<td class="align-middle"><%=product.getProductPrice()%></td>
+				<td class="align-middle">가격</td>
+				<td class="align-middle"><%=product.getProductPrice()%>원</td>
 			</tr>
 			<tr>
-				<td class="align-middle">product_soldout</td>
-				<td class="align-middle"><%=product.getProductSoldout()%></td>
+				<td class="align-middle">품절여부</td>
+				<% if(product.getProductSoldout().equals("Y")){
+					%>
+						<td class="align-middle "><span class="badge badge-danger" style="font-size: 15px;"><%=product.getProductSoldout()%></span></td>
+					<%
+				}
+				%>
+				<% if(product.getProductSoldout().equals("N")){
+					%>
+						<td  class="align-middle "><span class="badge badge-success" style="font-size: 15px;"><%=product.getProductSoldout()%></span></td>
+					<%
+				}
+				%>
+				
 			</tr>
 		</table>
 		
@@ -72,24 +89,34 @@
 			<table class="table "  style="text-align: right; ">
 				<tr>
 					
-					<td>상품 개수<select name="productAmount">
-							<%
-								for (int i = 1; i < 11; i = i + 1) {
-							%>
-							<option value="<%=i%>"><%=i%>
-							</option>
-								<%
-									}
-								%>
-							
-					</select>개</td>
+					<td>
+						<div class="input-group col-sm-5" style="float: right;" >
+							<span style="font-size: 20px;">상품 개수 : &nbsp;</span>
+								<select style="width: 150px;" class="form-control" name="productAmount">
+									<%
+										for (int i = 1; i < 11; i = i + 1) {
+									%>
+									<option value="<%=i%>"><%=i%>
+									</option>
+										<%
+											}
+										%>
+								</select>
+							<span style="font-size: 20px;" >개</span>
+						</div>
+					</td>
 				</tr>
 				<tr>
-					<td> 배송 주소: <input width="300" type="text" name="ordersAddr"></td>
+					<td>
+						<div class="input-group col-6" style="float: right;">
+						<span style="font-size: 20px;">배송 주소 : &nbsp;</span>
+					  	<input width="300" class="form-control" type="text" name="ordersAddr">
+					  	</div>
+					 </td>
 				<tr>
 			</table>
 			<div style="text-align: right ;">
-				<button class="btn btn-outline-secondary" type="submit">주문</button>
+				<button class="btn btn-outline-success" type="submit">주문</button>
 			</div>
 		</form>
 	</div>

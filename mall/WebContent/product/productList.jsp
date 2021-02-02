@@ -21,11 +21,14 @@
 .size{
 	font-size: 50px;
 }
+body{
+	background-color: #FAFFFA;
+}
 </style>
 </head>
 <body>
 	<div class="container">
-		<div>
+		<div style="margin-top: 20px;">
 			<jsp:include page="/inc/menu.jsp"></jsp:include>
 		</div>
 		<%request.setCharacterEncoding("utf-8");
@@ -72,7 +75,9 @@
 		 
 		%>
 		<%if(categoryId!=0){ %>
-		<h1 style="text-align: center;"><%=category.getCategoryName() %></h1>
+		<div style="margin-top: 30px;">
+			<h1 style="text-align: center;"><%=category.getCategoryName() %></h1>
+		</div>
 		<div> <!-- 상품 카드로 출력 -->
 		
 			<table class="table table-borderless" style="text-align: center;">
@@ -87,15 +92,15 @@
 					<td>
 						<div style="text-align: center;">
 						<div class="card" style="width: 200px ;" >
+							<a class="text-secondary"	href="<%=request.getContextPath()%>/product/productOne.jsp?productId=<%=p.getProductId()%>">
 							<img class="card-img-top"
 								src="/mall-admin/images/<%=p.getProductPic()%>"
 								alt="Card image" width="150" height="150">
 							<div class="card-body">
 								<h4 class="card-title">
-									<a class="text-secondary"
-										href="<%=request.getContextPath()%>/product/productOne.jsp?productId=<%=p.getProductId()%>"><%=p.getProductName()%></a>
+									<%=p.getProductName()%></a>
 								</h4>
-								<p class="card-text"><%=p.getProductPrice()%></p>
+								<p class="card-text"><%=p.getProductPrice()%> 원</p>
 
 							</div>
 						</div>

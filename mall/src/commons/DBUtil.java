@@ -4,7 +4,7 @@ public class DBUtil {
 	
 	public Connection getConnection() throws Exception{
 		String Driver = "org.mariadb.jdbc.Driver";
-		String dbadr = "jdbc:mariadb://localhost:3306/mall";
+		String dbadr = "jdbc:mariadb://kdi0905.kro.kr/mall";
 		String dbid = "root";
 		String dbpw = "java1004";
 		Class.forName(Driver);
